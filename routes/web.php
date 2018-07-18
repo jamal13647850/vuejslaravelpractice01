@@ -14,6 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/look', function () {
-    return "fdgfgfg";
+Route::get('/username', function () {
+    return ['jamal','kamal','ali','ahmad'];
 });

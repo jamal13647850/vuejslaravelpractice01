@@ -5,9 +5,9 @@
                 <div class="card card-default">
                     <div class="card-header">Example Component</div>
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
+                    <ul>
+                        <li v-for="user in users">{{user}}</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -16,8 +16,15 @@
 
 <script>
     export default {
+        data(){
+           return {
+               users : []
+           }
+        },
         mounted() {
-            console.log('Component mounted.')
+            axios.get('/username')
+                .then(response => this.users = response.data)
+                .catch(error => console.log(error));
         }
     }
 </script>
